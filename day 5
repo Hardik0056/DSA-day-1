@@ -1,0 +1,39 @@
+// Binary search
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<algorithm>
+using namespace std;
+int binarySearch(int arr[],int n,int tar){
+    int left=0,right=n-1;
+    while(left<=right){
+        int mid=left+(right-left)/2;
+        if(arr[mid]==tar)
+        return mid;
+        else if(arr[mid]<tar)
+        left=mid+1;
+        else
+        right=mid-1;
+    }
+    return -1;
+}
+int main() {
+    int arr[]={1,2,3,4,5,6};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    sort(arr,arr+n);
+    int tar=5;
+    int index=binarySearch(arr,n,tar);
+    if(index!=-1)
+    cout<<"Element found at index "<<index;
+    else
+    cout<<"Elemenet not found ";
+    
+    return 0;
+}
+
+
+
+
+
+
+
